@@ -14,4 +14,6 @@ provider "auth0" {
   client_secret = var.auth0_client_secret
 }
 
-
+module "API" {
+    source =  "./modules/api"
+}
