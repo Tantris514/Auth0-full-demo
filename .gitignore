@@ -63,3 +63,15 @@ bower_components/
 
 # npm package lock file
 package-lock.json
+
+# Executable files
+*.exe
+
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# HCL/Terraform files
+*.hcl
