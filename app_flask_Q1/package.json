@@ -1,0 +1,11 @@
+{
+  "name": "flask-api-tests",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "node-fetch": "^2.6.1"
+  }
+}
