@@ -1,4 +1,6 @@
 from flask import Flask, request, jsonify, abort
+from authlib.integrations.flask_oauth2 import ResourceProtector
+from validator import Auth0JWTBearerTokenValidator
 from uuid import uuid4
 import logging
 import os
@@ -14,16 +16,25 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+require_auth = ResourceProtector()
+validator = Auth0JWTBearerTokenValidator(
+    "dev-6ysi0lcrczy3s2qd.us.auth0.com",  
+    "https://validation/api"              
+)
+require_auth.register_token_validator(validator)
+
 app = Flask(__name__)
 
 #Stores the users in memory since we are not using a database
 users = {}
 
 @app.route('/users', methods=['GET'])
+@require_auth("read:users")
 def get_users():
     return jsonify(list(users.values()))
 
 @app.route('/users/<int:user_id>', methods=['GET'])
+@require_auth("read:users")
 def get_user(user_id):
     user = users.get(user_id)
     if not user:
@@ -34,6 +45,7 @@ def get_user(user_id):
 
 
 @app.route('/users', methods=['POST'])
+@require_auth("write:users")
 def create_user():
     data = request.get_json()
     if not data or 'name' not in data or 'username' not in data:
@@ -50,6 +62,7 @@ def create_user():
 
 
 @app.route('/users/<int:user_id>', methods=['DELETE'])
+@require_auth("delete:users")
 def delete_user(user_id):
     if user_id not in users:
         return jsonify({'error': 'User not found'}), 404
@@ -59,6 +72,7 @@ def delete_user(user_id):
 
 
 @app.route('/users/<int:user_id>', methods=['PUT'])
+@require_auth("write:users")
 def update_user(user_id):
     if user_id not in users:
         return jsonify({'error': 'User not found'}), 404
@@ -72,6 +86,17 @@ def update_user(user_id):
         users[user_id]['username'] = data['username']
     logger.info(f'Updated user {user_id} with data: {data}')
     return jsonify(users[user_id])
+
+
+@app.route("/api/public")
+def public():
+    return jsonify(message="This is a public endpoint.")
+
+@app.route("/api/private")
+@require_auth("scope_dont:exist") # This scope is not granted, so it will fail
+def private():
+    return jsonify(message="You accessed a private endpoint with a valid token.")
+
 
 
 if __name__ == '__main__':
