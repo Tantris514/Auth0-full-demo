@@ -1,5 +1,5 @@
 resource "auth0_resource_server" "main_api" {
-    name = "validation API (Managed by Terraform)"
+    name = "validation API"
     identifier  = "https://validation/api"
     signing_alg = "RS256"
 }
