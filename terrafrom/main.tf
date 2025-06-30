@@ -27,3 +27,7 @@ module "grants" {
     client_app_client_id = module.apps.client_app_id
     validation_api_identifier = module.API.validation_api_identifier
 }
+
+module "users" {
+    source =  "./modules/users"
+}
