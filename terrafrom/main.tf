@@ -22,12 +22,14 @@ module "apps" {
     source =  "./modules/apps"
 }
 
-module "grants" {
-    source =  "./modules/grants"
-    client_app_client_id = module.apps.client_app_id
-    validation_api_identifier = module.API.validation_api_identifier
+module "roles" {
+    source =  "./modules/roles"
+    springfield_api_identifier = module.API.springfield_api_identifier
+    springfield_api_scopes_id = module.API.springfield_api_scopes_id
 }
 
 module "users" {
     source =  "./modules/users"
+    citizen_role_id = module.roles.citizen_role_id
+    admin_role_id = module.roles.admin_role_id
 }
