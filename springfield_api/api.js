@@ -61,7 +61,7 @@ function requireScope(requiredScope) {
 
 function loadCitizens() {
   return new Promise((resolve) => {
-    fs.createReadStream('citizens.csv')
+    fs.createReadStream('../citizens.csv')
       .pipe(csv())
       .on('data', (row) => {
         citizensDB[row.email] = {
