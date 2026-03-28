@@ -1,0 +1,3 @@
+email,name,address,bills,permits
+homer@simpson.com,Homer Simpson,742 Evergreen Terrace,"[{""type"":""Utility"",""amount"":85.50,""status"":""paid""},{""type"":""Parking Ticket"",""amount"":150,""status"":""unpaid""}]","[{""type"":""Building Permit"",""status"":""pending"",""date"":""2026-03-15""}]"
+chief@springfield.gov,Chief Wiggum,Springfield Police Department,"[{""type"":""Parking Ticket"",""amount"":0,""status"":""exempt""}]","[]"
