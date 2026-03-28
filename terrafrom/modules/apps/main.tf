@@ -7,7 +7,9 @@ resource "auth0_client" "springfeild_app" {
   is_token_endpoint_ip_header_trusted = true
   oidc_conformant                     = true
   callbacks                           = ["http://localhost:3000/callback"]
-  allowed_origins                     = ["https://localhost"]
+  allowed_logout_urls                 = ["http://localhost:3000"]
+  allowed_origins                     = ["http://localhost:3000"]
+  web_origins                         = ["http://localhost:3000"]
 
   grant_types = [
     "authorization_code",
