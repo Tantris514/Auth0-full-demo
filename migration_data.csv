@@ -1,0 +1,21 @@
+email,name,password,address,bills,permits
+homer@simpson.com,Homer Simpson,Springfield123!,742 Evergreen Terrace,"[{""type"":""Utility"",""amount"":85.50
+marge@simpson.com,Marge Simpson,Springfield123!,742 Evergreen Terrace,"[{""type"":""Utility"",""amount"":85.50
+bart@simpson.com,Bart Simpson,Springfield123!,742 Evergreen Terrace,"[{""type"":""Parking Ticket"",""amount"":75
+lisa@simpson.com,Lisa Simpson,Springfield123!,742 Evergreen Terrace,"[{""type"":""Library Fine"",""amount"":5
+chief@springfield.gov,Chief Wiggum,Springfield123!,Springfield Police Department,"[{""type"":""Parking Ticket"",""amount"":0
+ned@flanders.com,Ned Flanders,Springfield123!,740 Evergreen Terrace,"[{""type"":""Utility"",""amount"":45.25
+apu@kwik-e-mart.com,Apu Nahasapeemapetilon,Springfield123!,Kwik-E-Mart,"[{""type"":""Business License"",""amount"":500
+moe@moes-tavern.com,Moe Szyslak,Springfield123!,Moe's Tavern,"[{""type"":""Liquor License"",""amount"":750
+burns@powerplant.com,C. Montgomery Burns,Springfield123!,Burns Manor,"[{""type"":""Property Tax"",""amount"":50000
+smithers@powerplant.com,Waylon Smithers,Springfield123!,Springfield Apartments,"[{""type"":""Utility"",""amount"":65
+krusty@krusty.com,Krusty the Clown,Springfield123!,Krusty Studios,"[{""type"":""Business License"",""amount"":1000
+skinner@springfield-elementary.edu,Seymour Skinner,Springfield123!,Springfield Elementary,"[{""type"":""Parking"",""amount"":0
+edna@springfield-elementary.edu,Edna Krabappel,Springfield123!,Springfield Apartments,"[{""type"":""Utility"",""amount"":55
+barney@springfield.com,Barney Gumble,Springfield123!,Springfield Apartments,"[{""type"":""Parking Ticket"",""amount"":300
+comic-guy@android-dungeon.com,Comic Book Guy,Springfield123!,Android's Dungeon,"[{""type"":""Business License"",""amount"":400
+hibbert@springfield-hospital.com,Dr. Julius Hibbert,Springfield123!,Springfield Medical District,"[{""type"":""Medical License"",""amount"":2000
+nick@springfield.com,Dr. Nick Riviera,Springfield123!,Springfield Medical District,"[{""type"":""Medical License"",""amount"":2000
+quimby@springfield.gov,Mayor Joe Quimby,Springfield123!,City Hall,"[{""type"":""Campaign Finance"",""amount"":10000
+lou@springfield.gov,Officer Lou,Springfield123!,Springfield Police Department,"[{""type"":""Parking"",""amount"":0
+eddie@springfield.gov,Officer Eddie,Springfield123!,Springfield Police Department,"[{""type"":""Parking"",""amount"":0
