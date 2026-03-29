@@ -1,0 +1,14 @@
+{
+  "name": "user-migration",
+  "version": "1.0.0",
+  "description": "M2M script to populate Auth0 users",
+  "main": "migrate.js",
+  "scripts": {
+    "migrate": "node migrate.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^16.0.3"
+  }
+}
