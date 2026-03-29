@@ -20,6 +20,8 @@ module "API" {
 
 module "apps" {
     source =  "./modules/apps"
+    auth0_domain = var.auth0_domain
+    springfield_api_identifier = module.API.springfield_api_identifier
 }
 
 module "roles" {

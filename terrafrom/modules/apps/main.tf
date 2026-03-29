@@ -31,5 +31,39 @@ resource "auth0_client" "springfeild_app" {
     rotation_type   = "rotating"
     expiration_type = "expiring"
   }
-
 }
+
+resource "auth0_client" "migration_cc_app" {
+  name        = "Springfeild Migration CC App"
+  description = "Springfeild User Migration CC"
+  app_type    = "non_interactive"
+
+  grant_types = [
+    "client_credentials"
+  ]
+
+  jwt_configuration {
+    alg = "RS256"
+  }
+}
+
+resource "auth0_client_grant" "migration_cc_auth0_grant" {
+  client_id = auth0_client.migration_cc_app.id
+  audience  = "https://${var.auth0_domain}/api/v2/"
+
+  scopes = [
+    "create:users",
+    "read:users",
+    "update:users"
+  ]
+}
+
+resource "auth0_client_grant" "migration_cc_springfield_grant" {
+  client_id = auth0_client.migration_cc_app.id
+  audience  = var.springfield_api_identifier
+
+  scopes = [
+    "admin:all"
+  ]
+}
+
