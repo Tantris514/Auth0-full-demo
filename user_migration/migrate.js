@@ -54,7 +54,7 @@ async function migrateUsers() {
 
   const citizens = [];
 
-  fs.createReadStream('test_migration.csv')
+  fs.createReadStream('../migration_data.csv')
     .pipe(csv())
     .on('data', (row) => {
       const bills = JSON.parse(row.bills);
