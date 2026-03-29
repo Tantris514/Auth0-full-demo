@@ -6,8 +6,9 @@ const fs = require('fs');
 const csv = require('csv-parser');
 
 const app = express();
+app.use(express.json());
+
 const PORT = process.env.API_PORT;
-let citizensDB = {};
 
 const jwksClient = jwksRsa({
   jwksUri: `https://${process.env.AUTH0_DOMAIN}/.well-known/jwks.json`
@@ -61,27 +62,39 @@ function requireScope(requiredScope) {
 
 function loadCitizens() {
   return new Promise((resolve) => {
+    const citizens = {};
     fs.createReadStream('../citizens.csv')
       .pipe(csv())
       .on('data', (row) => {
-        citizensDB[row.email] = {
+        let bills = [];
+        let permits = [];
+
+        try {
+          bills = JSON.parse(row.bills);
+        } catch (e) {}
+
+        try {
+          permits = JSON.parse(row.permits);
+        } catch (e) {}
+
+        citizens[row.email] = {
           name: row.name,
           email: row.email,
           address: row.address,
-          bills: JSON.parse(row.bills),
-          permits: JSON.parse(row.permits)
+          bills: bills,
+          permits: permits
         };
       })
       .on('end', () => {
-        console.log('Citizens loaded from CSV');
-        resolve();
+        resolve(citizens);
       });
   });
 }
 
-app.get('/api/citizens/me', validateToken, requireScope('read:profile'), (req, res) => {
+app.get('/api/citizens/me', validateToken, requireScope('read:profile'), async (req, res) => {
+  const citizens = await loadCitizens();
   const email = req.query.email;
-  const citizen = citizensDB[email];
+  const citizen = citizens[email];
 
   if (!citizen) {
     return res.status(404).json({ error: 'Citizen not found' });
@@ -94,13 +107,44 @@ app.get('/api/citizens/me', validateToken, requireScope('read:profile'), (req, r
   });
 });
 
-app.get('/api/citizens', validateToken, requireScope('admin:all'), (req, res) => {
+app.get('/api/citizens', validateToken, requireScope('admin:all'), async (req, res) => {
+  const citizens = await loadCitizens();
   console.log('Admin access - returning all citizens');
-  res.json(Object.values(citizensDB));
+  res.json(Object.values(citizens));
 });
 
-loadCitizens().then(() => {
-  app.listen(PORT, () => {
-    console.log('Springfield API started: http://localhost:' + PORT);
-  });
+app.post('/api/citizens', validateToken, requireScope('admin:all'), async (req, res) => {
+  const citizens = await loadCitizens();
+  const { email, name, address, bills, permits } = req.body;
+
+  if (!email || !name) {
+    return res.status(400).json({ error: 'Email and name required' });
+  }
+
+  if (citizens[email]) {
+    return res.status(409).json({ error: 'Citizen already exists' });
+  }
+
+  const citizen = {
+    name,
+    email,
+    address: address || '',
+    bills: bills || [],
+    permits: permits || []
+  };
+
+  const billsJson = JSON.stringify(bills || []);
+  const permitsJson = JSON.stringify(permits || []);
+  const billsEscaped = billsJson.replace(/"/g, '""');
+  const permitsEscaped = permitsJson.replace(/"/g, '""');
+
+  const csvLine = `\n${email},${name},${address || ''},"${billsEscaped}","${permitsEscaped}"`;
+  fs.appendFileSync('../citizens.csv', csvLine);
+
+  console.log('Created citizen:', email);
+  res.status(201).json(citizen);
+});
+
+app.listen(PORT, () => {
+  console.log('Springfield API started: http://localhost:' + PORT);
 });
