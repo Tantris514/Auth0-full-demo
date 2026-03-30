@@ -27,7 +27,7 @@ resource "auth0_client" "springfeild_app" {
 
   refresh_token {
     leeway          = 0
-    token_lifetime  = 2592000
+    token_lifetime  = 600
     rotation_type   = "rotating"
     expiration_type = "expiring"
   }
