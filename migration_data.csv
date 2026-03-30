@@ -1,21 +1,21 @@
 email,name,password,address,bills,permits
-homer@simpson.com,Homer Simpson,Springfield123!,742 Evergreen Terrace,"[{""type"":""Utility"",""amount"":85.50
-marge@simpson.com,Marge Simpson,Springfield123!,742 Evergreen Terrace,"[{""type"":""Utility"",""amount"":85.50
-bart@simpson.com,Bart Simpson,Springfield123!,742 Evergreen Terrace,"[{""type"":""Parking Ticket"",""amount"":75
-lisa@simpson.com,Lisa Simpson,Springfield123!,742 Evergreen Terrace,"[{""type"":""Library Fine"",""amount"":5
-chief@springfield.gov,Chief Wiggum,Springfield123!,Springfield Police Department,"[{""type"":""Parking Ticket"",""amount"":0
-ned@flanders.com,Ned Flanders,Springfield123!,740 Evergreen Terrace,"[{""type"":""Utility"",""amount"":45.25
-apu@kwik-e-mart.com,Apu Nahasapeemapetilon,Springfield123!,Kwik-E-Mart,"[{""type"":""Business License"",""amount"":500
-moe@moes-tavern.com,Moe Szyslak,Springfield123!,Moe's Tavern,"[{""type"":""Liquor License"",""amount"":750
-burns@powerplant.com,C. Montgomery Burns,Springfield123!,Burns Manor,"[{""type"":""Property Tax"",""amount"":50000
-smithers@powerplant.com,Waylon Smithers,Springfield123!,Springfield Apartments,"[{""type"":""Utility"",""amount"":65
-krusty@krusty.com,Krusty the Clown,Springfield123!,Krusty Studios,"[{""type"":""Business License"",""amount"":1000
-skinner@springfield-elementary.edu,Seymour Skinner,Springfield123!,Springfield Elementary,"[{""type"":""Parking"",""amount"":0
-edna@springfield-elementary.edu,Edna Krabappel,Springfield123!,Springfield Apartments,"[{""type"":""Utility"",""amount"":55
-barney@springfield.com,Barney Gumble,Springfield123!,Springfield Apartments,"[{""type"":""Parking Ticket"",""amount"":300
-comic-guy@android-dungeon.com,Comic Book Guy,Springfield123!,Android's Dungeon,"[{""type"":""Business License"",""amount"":400
-hibbert@springfield-hospital.com,Dr. Julius Hibbert,Springfield123!,Springfield Medical District,"[{""type"":""Medical License"",""amount"":2000
-nick@springfield.com,Dr. Nick Riviera,Springfield123!,Springfield Medical District,"[{""type"":""Medical License"",""amount"":2000
-quimby@springfield.gov,Mayor Joe Quimby,Springfield123!,City Hall,"[{""type"":""Campaign Finance"",""amount"":10000
-lou@springfield.gov,Officer Lou,Springfield123!,Springfield Police Department,"[{""type"":""Parking"",""amount"":0
-eddie@springfield.gov,Officer Eddie,Springfield123!,Springfield Police Department,"[{""type"":""Parking"",""amount"":0
+homer@simpson.com,Homer Simpson,Springfield123!,742 Evergreen Terrace,"[{""type"":""Utility"",""amount"":85.50,""status"":""paid""},{""type"":""Parking Ticket"",""amount"":150,""status"":""unpaid""}]","[{""type"":""Building Permit"",""status"":""pending"",""date"":""2026-03-15""}]"
+marge@simpson.com,Marge Simpson,Springfield123!,742 Evergreen Terrace,"[{""type"":""Utility"",""amount"":85.50,""status"":""paid""}]","[]"
+bart@simpson.com,Bart Simpson,Springfield123!,742 Evergreen Terrace,"[{""type"":""Parking Ticket"",""amount"":75,""status"":""unpaid""}]","[]"
+lisa@simpson.com,Lisa Simpson,Springfield123!,742 Evergreen Terrace,"[{""type"":""Library Fine"",""amount"":5,""status"":""unpaid""}]","[]"
+chief@springfield.gov,Chief Wiggum,Springfield123!,Springfield Police Department,"[{""type"":""Parking Ticket"",""amount"":0,""status"":""exempt""}]","[]"
+ned@flanders.com,Ned Flanders,Springfield123!,740 Evergreen Terrace,"[{""type"":""Utility"",""amount"":45.25,""status"":""paid""}]","[]"
+apu@kwik-e-mart.com,Apu Nahasapeemapetilon,Springfield123!,Kwik-E-Mart,"[{""type"":""Business License"",""amount"":500,""status"":""paid""}]","[{""type"":""Business License"",""status"":""active"",""date"":""2026-01-01""}]"
+moe@moes-tavern.com,Moe Szyslak,Springfield123!,Moe's Tavern,"[{""type"":""Liquor License"",""amount"":750,""status"":""paid""}]","[{""type"":""Liquor License"",""status"":""active"",""date"":""2026-01-01""}]"
+burns@powerplant.com,C. Montgomery Burns,Springfield123!,Burns Manor,"[{""type"":""Property Tax"",""amount"":50000,""status"":""paid""}]","[{""type"":""Nuclear Facility Permit"",""status"":""active"",""date"":""2025-01-01""}]"
+smithers@powerplant.com,Waylon Smithers,Springfield123!,Springfield Apartments,"[{""type"":""Utility"",""amount"":65,""status"":""paid""}]","[]"
+krusty@krusty.com,Krusty the Clown,Springfield123!,Krusty Studios,"[{""type"":""Business License"",""amount"":1000,""status"":""paid""}]","[{""type"":""Entertainment License"",""status"":""active"",""date"":""2026-01-01""}]"
+skinner@springfield-elementary.edu,Seymour Skinner,Springfield123!,Springfield Elementary,"[{""type"":""Parking"",""amount"":0,""status"":""exempt""}]","[]"
+edna@springfield-elementary.edu,Edna Krabappel,Springfield123!,Springfield Apartments,"[{""type"":""Utility"",""amount"":55,""status"":""paid""}]","[]"
+barney@springfield.com,Barney Gumble,Springfield123!,Springfield Apartments,"[{""type"":""Parking Ticket"",""amount"":300,""status"":""unpaid""}]","[]"
+comic-guy@android-dungeon.com,Comic Book Guy,Springfield123!,Android's Dungeon,"[{""type"":""Business License"",""amount"":400,""status"":""paid""}]","[{""type"":""Business License"",""status"":""active"",""date"":""2026-01-01""}]"
+hibbert@springfield-hospital.com,Dr. Julius Hibbert,Springfield123!,Springfield Medical District,"[{""type"":""Medical License"",""amount"":2000,""status"":""paid""}]","[{""type"":""Medical License"",""status"":""active"",""date"":""2025-06-01""}]"
+nick@springfield.com,Dr. Nick Riviera,Springfield123!,Springfield Medical District,"[{""type"":""Medical License"",""amount"":2000,""status"":""paid""}]","[{""type"":""Medical License"",""status"":""active"",""date"":""2025-06-01""}]"
+quimby@springfield.gov,Mayor Joe Quimby,Springfield123!,City Hall,"[{""type"":""Campaign Finance"",""amount"":10000,""status"":""paid""}]","[]"
+lou@springfield.gov,Officer Lou,Springfield123!,Springfield Police Department,"[{""type"":""Parking"",""amount"":0,""status"":""exempt""}]","[]"
+eddie@springfield.gov,Officer Eddie,Springfield123!,Springfield Police Department,"[{""type"":""Parking"",""amount"":0,""status"":""exempt""}]","[]"
