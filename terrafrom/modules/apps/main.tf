@@ -20,14 +20,11 @@ resource "auth0_client" "springfeild_app" {
     lifetime_in_seconds = 300
     secret_encoded      = true
     alg                 = "RS256"
-    scopes = {
-      foo = "bar"
-    }
   }
 
   refresh_token {
     leeway          = 0
-    token_lifetime  = 600
+    token_lifetime  = 300
     rotation_type   = "rotating"
     expiration_type = "expiring"
   }
